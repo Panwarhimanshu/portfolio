@@ -96,10 +96,16 @@ async function main() {
             colSpan: 1,
             order: 5,
         },
-    ]
+    ] as const
 
     for (const p of projectsData) {
-        await prisma.portfolioProject.create({ data: p })
+        await prisma.portfolioProject.create({
+            data: {
+                ...p,
+                // Prisma schema stores tags as a single String field
+                tags: p.tags.join(", "),
+            },
+        })
     }
 
     console.log('Seeded Projects')
