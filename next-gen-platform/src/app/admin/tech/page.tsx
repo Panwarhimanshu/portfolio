@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getTechItems } from "@/app/actions";
 import { TechItemForm } from "./tech-item-form";
 import { TechItemList } from "./tech-item-list";

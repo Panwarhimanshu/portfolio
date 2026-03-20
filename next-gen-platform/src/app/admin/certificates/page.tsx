@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getCertificates } from "@/app/actions";
 import { CertificateForm } from "./certificate-form";
 

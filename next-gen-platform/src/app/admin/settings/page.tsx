@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getSiteSettings } from "@/app/actions";
 import { SettingsForm } from "./settings-form";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getHero } from "@/app/actions";
 import { HeroForm } from "./hero-form";
 

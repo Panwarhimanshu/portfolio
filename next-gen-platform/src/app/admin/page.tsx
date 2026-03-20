@@ -1,5 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Package, Wrench, Award, MessageSquare } from "lucide-react";
+export const dynamic = 'force-dynamic';
 import { getDashboardStats, getMessages } from "@/app/actions";
 
 export default async function AdminDashboard() {

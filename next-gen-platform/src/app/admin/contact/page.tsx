@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getMessages, getContactInfo } from "@/app/actions";
 import { ContactList } from "./contact-list";
 import { ContactInfoForm } from "./contact-info-form";

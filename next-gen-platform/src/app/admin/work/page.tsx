@@ -1,3 +1,4 @@
+export const dynamic = 'force-dynamic';
 import { getProjects } from "@/app/actions";
 import { WorkForm } from "./work-form";
 
