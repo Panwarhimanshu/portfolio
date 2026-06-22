@@ -14,8 +14,10 @@ const geistMono = Geist_Mono({
 
 import { ThemeProvider } from "@/components/theme-provider";
 import { FloatingNav, navItems } from "@/components/ui/floating-navbar";
-
+import { CustomCursor } from "@/components/ui/custom-cursor";
+import { ScrollProgress } from "@/components/ui/scroll-progress";
 import { getSiteSettings } from "./actions";
+import { Toaster } from "sonner";
 
 export async function generateMetadata() {
   const settings = await getSiteSettings();
@@ -24,8 +26,6 @@ export async function generateMetadata() {
     description: settings?.siteDescription || "Experience the future of web design.",
   };
 }
-
-
 
 export default async function RootLayout({
   children,
@@ -40,15 +40,17 @@ export default async function RootLayout({
       >
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
+          <CustomCursor />
+          <ScrollProgress />
           <FloatingNav navItems={navItems} />
           {children}
+          <Toaster richColors position="top-right" />
         </ThemeProvider>
       </body>
     </html>
   );
 }
-

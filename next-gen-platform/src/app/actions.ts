@@ -278,6 +278,43 @@ export async function updateContactInfo(data: FormData) {
     revalidatePath("/admin/contact");
 }
 
+// --- Instagram Post Actions ---
+export async function getInstagramPosts() {
+    return await prisma.instagramPost.findMany({ orderBy: { order: "asc" } });
+}
+
+export async function createInstagramPost(data: FormData) {
+    const imageUrl = data.get("imageUrl") as string;
+    const caption = data.get("caption") as string;
+    const postUrl = data.get("postUrl") as string;
+    const likes = parseInt(data.get("likes") as string) || 0;
+    const comments = parseInt(data.get("comments") as string) || 0;
+    const order = parseInt(data.get("order") as string) || 0;
+    await prisma.instagramPost.create({ data: { imageUrl, caption, postUrl, likes, comments, order } });
+    revalidatePath("/");
+    revalidatePath("/admin/instagram");
+}
+
+export async function deleteInstagramPost(id: string) {
+    await prisma.instagramPost.delete({ where: { id } });
+    revalidatePath("/");
+    revalidatePath("/admin/instagram");
+}
+
+// --- Contact Message Actions ---
+export async function sendContactMessage(data: FormData) {
+    const name = data.get("name") as string;
+    const email = data.get("email") as string;
+    const message = data.get("message") as string;
+
+    if (!name || !email || !message) throw new Error("Missing required fields");
+
+    await prisma.contactMessage.create({
+        data: { name, email, message },
+    });
+    revalidatePath("/admin/contact");
+}
+
 // --- Dashboard Actions ---
 export async function getDashboardStats() {
     const [projectsCount, servicesCount, certificatesCount, messagesCount] = await Promise.all([

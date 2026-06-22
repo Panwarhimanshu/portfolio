@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Switch } from "@/components/ui/switch";
 import { updateSiteSettings } from "@/app/actions";
 import { useRouter } from "next/navigation";
-import { toast } from "sonner"; // Assuming sonner is available or just use alert
+import { toast } from "sonner";
 
 export function SettingsForm({ initialData }: { initialData: any }) {
     const router = useRouter();
@@ -18,14 +18,12 @@ export function SettingsForm({ initialData }: { initialData: any }) {
         e.preventDefault();
         setLoading(true);
         const formData = new FormData(e.currentTarget);
-
-        // Handle switch manually if needed or ensure it has a name
         try {
             await updateSiteSettings(formData);
-            alert("Settings updated successfully!");
+            toast.success("Settings updated successfully!");
             router.refresh();
-        } catch (error) {
-            alert("Failed to update settings.");
+        } catch {
+            toast.error("Failed to update settings.");
         } finally {
             setLoading(false);
         }

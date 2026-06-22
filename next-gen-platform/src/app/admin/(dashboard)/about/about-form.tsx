@@ -8,14 +8,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { toast } from "sonner";
 
 export function AboutForm({ defaultData }: { defaultData: AboutSection | null }) {
     const [pending, startTransition] = useTransition();
 
     function onSubmit(formData: FormData) {
         startTransition(async () => {
-            await updateAbout(formData);
-            alert("About section updated!");
+            try {
+                await updateAbout(formData);
+                toast.success("About section updated!");
+            } catch {
+                toast.error("Failed to update. Please try again.");
+            }
         });
     }
 

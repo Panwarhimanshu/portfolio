@@ -8,16 +8,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { toast } from "sonner"; // Assuming sonner or some toast exists, if not I'll just use simple feedback
+import { toast } from "sonner";
 
 export function HeroForm({ defaultData }: { defaultData: HeroSection | null }) {
     const [pending, startTransition] = useTransition();
 
     function onSubmit(formData: FormData) {
         startTransition(async () => {
-            await updateHero(formData);
-            // In a real app we'd use a Toast here
-            alert("Hero section updated!");
+            try {
+                await updateHero(formData);
+                toast.success("Hero section updated!");
+            } catch {
+                toast.error("Failed to update. Please try again.");
+            }
         });
     }
 

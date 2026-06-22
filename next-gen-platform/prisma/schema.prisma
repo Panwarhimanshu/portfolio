@@ -183,3 +183,14 @@ model SiteSettings {
   updatedAt        DateTime @updatedAt
 }
 
+model InstagramPost {
+  id         String   @id @default(cuid()) @map("_id")
+  imageUrl   String
+  caption    String?
+  postUrl    String?
+  likes      Int      @default(0)
+  comments   Int      @default(0)
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+

@@ -44,7 +44,7 @@ export default function LoginPage() {
     return (
         <AuroraBackground showRadialGradient={false} className="bg-background">
             <div className="flex items-center justify-center min-h-screen w-full relative z-10 p-4">
-                <Card className="w-full max-w-md bg-white/10 backdrop-blur-xl border-white/20">
+                <Card className="w-full max-w-md bg-card/90 backdrop-blur-xl border-border shadow-2xl">
                     <CardHeader className="space-y-1">
                         <div className="flex justify-center mb-4">
                             <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center">
@@ -66,7 +66,7 @@ export default function LoginPage() {
                                     placeholder="admin@example.com"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="bg-background/20 border-white/10"
+                                    className="bg-background border-border"
                                 />
                             </div>
                             <div className="space-y-2">
@@ -76,7 +76,7 @@ export default function LoginPage() {
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="bg-background/20 border-white/10"
+                                    className="bg-background border-border"
                                 />
                             </div>
 
