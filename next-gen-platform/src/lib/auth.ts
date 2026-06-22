@@ -6,20 +6,20 @@ export const authOptions: NextAuthOptions = {
         CredentialsProvider({
             name: "Credentials",
             credentials: {
-                email: { label: "Email", type: "email", placeholder: "admin@example.com" },
+                email: { label: "Email", type: "email", placeholder: "himanshu_admin" },
                 password: { label: "Password", type: "password" }
             },
             async authorize(credentials) {
                 // This is where you would normally look up the user in the database
                 // For this demo, we'll use hardcoded credentials
                 if (
-                    credentials?.email === "admin@example.com" &&
-                    credentials?.password === "password"
+                    credentials?.email === "himanshu_admin" &&
+                    credentials?.password === "Himanshu@32q"
                 ) {
                     return {
                         id: "1",
                         name: "Admin User",
-                        email: "admin@example.com",
+                        email: "himanshu_admin",
                         role: "ADMIN",
                     };
                 }

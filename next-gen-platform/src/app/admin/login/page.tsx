@@ -63,7 +63,7 @@ export default function LoginPage() {
                                 <Input
                                     id="email"
                                     type="email"
-                                    placeholder="admin@example.com"
+                                    placeholder="himanshu_admin"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="bg-background border-border"
@@ -90,9 +90,6 @@ export default function LoginPage() {
                                 {loading ? "Authenticating..." : "Login"}
                             </Button>
                         </form>
-                        <div className="mt-4 text-center text-xs text-muted-foreground">
-                            <p>Demo: admin@example.com / password</p>
-                        </div>
                     </CardContent>
                 </Card>
             </div>
