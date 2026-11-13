@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Himanshu, software developer</title>
+  <meta name="description" content="Himanshu builds small, sturdy web tools for clinics, kitchens and colleges. Projects, skills, experience and contact.">
+  <meta property="og:title" content="Himanshu, software developer">
+  <meta property="og:image" content="/images/me.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&family=Libre+Franklin:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
+  <script>
+    // Apply the saved theme before the first paint so the page never flashes.
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+    // The main site (shadcn/ui) is dark unless the visitor picked light.
+    if (location.pathname.replace(/\/+$/, '') === '') {
+      var p = 'dark'; try { p = localStorage.getItem('pro-theme') || 'dark'; } catch (e) {}
+      if (p === 'dark') document.documentElement.classList.add('dark');
+      document.documentElement.style.background = p === 'dark' ? '#09090b' : '#ffffff';
+    }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+</html>

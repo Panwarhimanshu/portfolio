@@ -1,0 +1,79 @@
+.town { position: fixed; inset: 0; overflow: hidden; background: #ffd8b4; font-family: "Libre Franklin", system-ui, sans-serif; color: #1f1b16; }
+.town__canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; touch-action: none; }
+
+/* HUD */
+.town__hud { position: absolute; top: 16px; left: 16px; right: 16px; z-index: 3; display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: 12px; pointer-events: none; }
+.town__hud > * { pointer-events: auto; }
+.town__name { margin: 0; font-family: Newsreader, Georgia, serif; font-size: 32px; line-height: 1; }
+.town__role { margin: 4px 0 0; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #5e554a; }
+.town__jump { display: flex; flex-wrap: wrap; gap: 6px; justify-content: center; }
+.town__jump button, .town__classic {
+  height: 32px; padding: 0 12px; border-radius: 8px;
+  border: 0; background: rgb(255 255 255 / 0.75); color: #1f1b16;
+  font: 500 13px "Libre Franklin", sans-serif; cursor: pointer; text-decoration: none;
+  display: inline-flex; align-items: center;
+  box-shadow: 0 2px 0 rgb(31 27 22 / 0.15);
+  backdrop-filter: blur(6px);
+}
+.town__jump button:hover, .town__classic:hover { background: #fff; }
+.town__classic { background: #1f1b16; color: #fff; }
+.town__classic:hover { background: #2a45c2; color: #fff; }
+@media (max-width: 899px) { .town__jump { display: none; } }
+
+/* Info card when parked */
+.town__card {
+  position: absolute;
+  right: 16px;
+  bottom: 84px;
+  z-index: 3;
+  width: min(400px, calc(100vw - 32px));
+  max-height: 60vh;
+  overflow: auto;
+  padding: 24px;
+  border-radius: 16px;
+  background: #fffaf2;
+  box-shadow: 0 6px 0 rgb(31 27 22 / 0.12), 0 24px 50px -10px rgb(31 27 22 / 0.35);
+  opacity: 0;
+  transform: translateY(20px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 250ms ease, transform 350ms cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+.town__card.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.town__card h2 { margin: 4px 0 10px; font-family: Newsreader, Georgia, serif; font-weight: 400; font-size: 34px; line-height: 1.05; }
+.town__card p { margin: 0 0 10px; color: #5e554a; line-height: 1.5; }
+.town__card b { color: #1f1b16; font-weight: 600; }
+.town__meta { font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #2a45c2 !important; }
+.town__tags { font-family: "IBM Plex Mono", monospace; font-size: 12px; }
+.town__small { font-size: 14px; }
+.town__links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+.town__links a { color: #2a45c2; font-weight: 600; text-decoration: none; }
+.town__email { display: block; margin: 4px 0 12px; font-family: Newsreader, Georgia, serif; font-size: 26px; color: #1f1b16; overflow-wrap: anywhere; }
+
+/* Phone controls */
+.town__pad { display: none; }
+@media (pointer: coarse) {
+  .town__pad { position: absolute; left: 16px; right: 16px; bottom: 76px; z-index: 4; display: flex; justify-content: space-between; pointer-events: none; }
+  .town__pad > div { display: flex; gap: 10px; pointer-events: auto; }
+  .town__pad button { width: 64px; height: 64px; border-radius: 16px; border: 0; background: rgb(255 255 255 / 0.8); font-size: 22px; box-shadow: 0 4px 0 rgb(31 27 22 / 0.2); touch-action: none; user-select: none; }
+  .town__pad button:active { transform: translateY(3px); box-shadow: 0 1px 0 rgb(31 27 22 / 0.2); }
+  .town__pad .is-go { background: #2a45c2; color: #fff; }
+  .town__card { bottom: 160px; }
+}
+
+/* Start screen */
+.town__start { position: absolute; inset: 0; z-index: 10; display: grid; place-items: center; padding: 16px; background: rgb(255 216 180 / 0.55); backdrop-filter: blur(3px); cursor: pointer; }
+.town__start-box { width: min(520px, 100%); padding: 32px; border-radius: 20px; background: #fffaf2; box-shadow: 0 8px 0 rgb(31 27 22 / 0.12), 0 40px 80px -20px rgb(31 27 22 / 0.4); cursor: default; animation: enter 500ms cubic-bezier(0.22, 1, 0.36, 1) both; }
+.town__start h1 { margin: 6px 0 14px; font-family: Newsreader, Georgia, serif; font-weight: 400; font-size: clamp(40px, 7vw, 60px); line-height: 0.98; letter-spacing: -0.02em; }
+.town__start p { color: #5e554a; line-height: 1.5; margin: 0 0 16px; }
+.town__keys { display: grid; gap: 8px; margin-bottom: 24px; font-size: 14px; color: #5e554a; }
+kbd { display: inline-block; min-width: 26px; padding: 2px 6px; margin-right: 4px; border-radius: 6px; background: #fff; border: 1px solid rgb(31 27 22 / 0.2); box-shadow: 0 2px 0 rgb(31 27 22 / 0.2); font: 600 12px "IBM Plex Mono", monospace; text-align: center; color: #1f1b16; }
+.town__go { width: 100%; height: 52px; border: 0; border-radius: 12px; background: #e23c2b; color: #fff; font: 600 17px "Libre Franklin", sans-serif; cursor: pointer; box-shadow: 0 5px 0 #a3281b; transition: transform 90ms ease, box-shadow 90ms ease; }
+.town__go:hover:not(:disabled) { background: #f04a38; }
+.town__go:active { transform: translateY(4px); box-shadow: 0 1px 0 #a3281b; }
+.town__go:disabled { opacity: 0.7; cursor: progress; }
+.town__skip { display: block; margin-top: 14px; text-align: center; font-size: 13px; color: #5e554a; }
+
+.town-fail { min-height: 100vh; display: grid; place-content: center; gap: 12px; text-align: center; font-family: "Libre Franklin", sans-serif; }
+
+/* Keep the demo switcher above everything */
+.town ~ .demobar { z-index: 1000; }

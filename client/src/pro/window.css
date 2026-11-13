@@ -1,0 +1,100 @@
+/* Browser frame + mock screens for project previews (copied from the classic site).
+   The mocks have their own small palette so they look like real app screens in both themes. */
+.window {
+  --card: #18181b; --raised: #27272a; --line: rgb(250 250 250 / 0.07); --line-strong: rgb(250 250 250 / 0.12);
+  --text: #fafafa; --text-2: #a1a1aa; --text-3: #8b8b94; --accent: #fbbf24; --accent-text: #18181b; --ok: #4ade80;
+  --shadow: none; --mono: "Geist Mono", ui-monospace, monospace; --display: "Geist", system-ui, sans-serif;
+}
+.window .mono { font-family: var(--mono); }
+   Browser window: the frame around every screenshot
+   ------------------------------------------------------------ */
+.window {
+  background: var(--card);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.window__bar {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--line);
+}
+.window__url {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 28px;
+  padding: 0 12px;
+  border-radius: 6px;
+  background: var(--raised);
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-2);
+  text-decoration: none;
+  min-width: 0;
+}
+.window__url span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.window__url svg { flex: none; width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+a.window__url:hover { color: var(--accent); }
+
+.window__view { position: relative; aspect-ratio: 16 / 10; overflow: hidden; background: var(--raised); }
+.window__view img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.window__view .mock { position: absolute; inset: 0; }
+.window__view.has-img .mock { display: none; }
+
+/* ------------------------------------------------------------
+   Mock screens (shown until real screenshots are added)
+   ------------------------------------------------------------ */
+.mock { font-size: 13px; line-height: 20px; color: var(--text); background: var(--card); display: flex; flex-direction: column; }
+.mock .mono { font-size: 12px; line-height: 16px; }
+.m-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 16px 20px 12px; }
+.m-title { font-weight: 500; font-size: 15px; }
+.m-sub { color: var(--text-3); }
+.m-stats { display: flex; gap: 32px; padding: 0 20px 16px; border-bottom: 1px solid var(--line); }
+.m-stats b { display: block; font-weight: 500; font-size: 20px; line-height: 28px; font-variant-numeric: tabular-nums; }
+.m-stats span { color: var(--text-3); font-size: 12px; }
+.m-rows { flex: 1; overflow: hidden; }
+.m-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+  height: 40px;
+  padding: 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+.m-row > span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.m-row .m-sub { font-size: 12px; }
+.m-status { display: inline-flex; align-items: center; gap: 8px; color: var(--text-2); font-size: 12px; }
+.m-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--text-3); }
+.m-dot--ok { background: var(--ok); }
+.m-dot--go { background: var(--accent); }
+
+/* Queueless: the waiting-room TV */
+.mock--tv { background: #12110f; color: #efe9de; justify-content: center; padding: 24px 28px; gap: 16px; }
+.tv-label { color: #aaa398; }
+.tv-now { display: flex; align-items: baseline; gap: 20px; }
+.tv-num { font-family: var(--display); font-size: clamp(72px, 11vw, 120px); line-height: 0.9; font-variant-numeric: tabular-nums; }
+.tv-room { font-size: 16px; line-height: 24px; color: #efe9de; }
+.tv-room small { display: block; font-size: 13px; color: #aaa398; }
+.tv-next { display: flex; gap: 8px; }
+.tv-next span { font-family: var(--mono); font-size: 14px; padding: 4px 10px; border-radius: 6px; background: #262421; color: #c9c2b6; }
+
+/* Mess feedback: issue counts */
+.m-bars { padding: 12px 20px; display: grid; gap: 12px; }
+.m-bar { display: grid; grid-template-columns: minmax(0, 1fr) 36px; gap: 4px 12px; align-items: center; }
+.m-bar__track { grid-column: 1 / -1; height: 6px; border-radius: 3px; background: var(--raised); overflow: hidden; }
+.m-bar__fill { height: 100%; background: var(--text-3); border-radius: 3px; }
+.m-bar--top .m-bar__fill { background: var(--accent); }
+.m-bar b { font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+
+/* Paperboy: terminal */
+.mock--term { background: #12110f; color: #d9d2c5; padding: 20px; font-family: var(--mono); font-size: 12px; line-height: 20px; }
+.mock--term .t-dim { color: #8a847a; }
+.mock--term .t-ok { color: #4cc38a; }
+.mock--term .t-cmd::before { content: "$ "; color: #8a847a; }
+

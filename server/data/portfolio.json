@@ -1,0 +1,85 @@
+{
+  "profile": {
+    "name": "Himanshu Panwar",
+    "role": "Software Developer | Innovator | Business Analyst | Cyber Investigator | Entrepreneur",
+    "location": "Vadodara",
+    "headline": "I build sturdy web tools ",
+    "intro": "Most of my projects start with a notebook, a spreadsheet or a WhatsApp group that has run out of room. I replace it with something quick and plain that keeps working.",
+    "photo": "/uploads/hima1-6cbc360b.jpg",
+    "resume": "/uploads/himanshu-resume-1-77aabe18.pdf",
+    "email": "panwarhimanshu4321@gmail.com",
+    "availability": "Open to freelance work. If you have a tool that has outgrown its spreadsheet, write to me.",
+    "links": [
+      {
+        "label": "GitHub",
+        "url": "https://github.com/Panwarhimanshu"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/in/himanshupanwar11/"
+      }
+    ],
+    "whatsapp": "+919389943911"
+  },
+  "projects": [],
+  "githubNote": {
+    "text": "Smaller experiments and scripts are on",
+    "label": "GitHub",
+    "url": "https://github.com/Panwarhimanshu"
+  },
+  "skills": [
+    {
+      "group": "Every day",
+      "items": [
+        "TypeScript and JavaScript",
+        "React and Next.js",
+        "Node.js and Express",
+        "PostgreSQL",
+        "HTML and CSS",
+        "Git"
+      ]
+    },
+    {
+      "group": "When the job needs it",
+      "items": [
+        "Python for scripts",
+        "MongoDB and Redis",
+        "Docker",
+        "Linux and Nginx",
+        "WebSockets",
+        "Figma"
+      ]
+    },
+    {
+      "group": "Learning now",
+      "items": [
+        "Go",
+        "System design",
+        "Writing proper tests",
+        "AWS"
+      ]
+    }
+  ],
+  "experience": [
+    {
+      "dates": "Oct 2025 – now",
+      "title": "Software developer ",
+      "org": "Kanan International",
+      "text": "Develop and improve internal web applications and automation tools for reporting, tracking, booking, and business workflows"
+    },
+    {
+      "dates": "Sep 2023 - Oct  2025",
+      "title": "Tech Support Executive",
+      "org": "Kanan International",
+      "text": "Provide technical support for CRM, KPrep, KApply, Zoho People, and other business applications.\n• Troubleshoot application issues, coordinate with technical teams, and support reliable day-to-day system operations.\n• Perform QA/QC testing of CRM and internal software, identify defects, document issues, and coordinate fixes."
+    },
+    {
+      "dates": "Mar 2022 – Jul 2023",
+      "title": " Software Developer Intern",
+      "org": "Voldebug Innovation Pvt. Ltd.",
+      "text": "• Developed web applications and business solutions using PHP, HTML, CSS, JavaScript, Python, and MySQL.\n• Worked on Flutter-based mobile applications and cross-platform development.\n• Contributed to software development, testing, debugging, deployment support, and process improvements"
+    }
+  ],
+  "writing": [],
+  "now": []
+}

@@ -1,0 +1,48 @@
+/* Shared bits for the four design demos */
+.demobar {
+  position: fixed;
+  left: 50%;
+  bottom: 16px;
+  transform: translateX(-50%);
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 20px;
+  max-width: calc(100vw - 32px);
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: rgb(20 19 17 / 0.92);
+  color: #efe9de;
+  font: 500 13px/20px "Libre Franklin", system-ui, sans-serif;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 0.35);
+  backdrop-filter: blur(8px);
+}
+.demobar a { color: #c9c2b6; text-decoration: none; }
+.demobar a:hover { color: #fff; }
+.demobar__nav { display: flex; gap: 16px; }
+.demobar__now b { font-weight: 600; color: #fff; }
+
+.demo-loading { min-height: 100vh; display: grid; place-items: center; background: #0d0c0b; color: #8a847a; font-family: "IBM Plex Mono", monospace; }
+
+/* Picker */
+.picker { min-height: 100vh; padding: 80px 24px; max-width: 880px; margin: 0 auto; }
+.picker h1 { font-family: var(--display); font-weight: 400; font-size: clamp(40px, 6vw, 72px); letter-spacing: -0.03em; }
+.picker__sub { color: var(--text-2); font-size: 18px; margin: 12px 0 40px; max-width: 36rem; }
+.picker__list { display: grid; gap: 12px; }
+.picker__list a {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  gap: 4px 16px;
+  padding: 20px 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  background: var(--card);
+  text-decoration: none;
+  transition: transform 150ms var(--ease), border-color 150ms var(--ease);
+}
+.picker__list a:hover { transform: translateY(-2px); border-color: var(--text-3); color: inherit; }
+.picker__n { grid-row: span 2; font-family: var(--display); font-size: 40px; line-height: 1; color: var(--accent); }
+.picker__name { font-size: 20px; font-weight: 500; }
+.picker__blurb { color: var(--text-2); }

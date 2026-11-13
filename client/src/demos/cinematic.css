@@ -1,0 +1,107 @@
+.cin { background: #0c0b0a; color: #efe9de; font-family: "Libre Franklin", system-ui, sans-serif; }
+.cin__track { height: 900vh; }
+.cin__stage {
+  --p: 0; --c0: 0; --c1: 0; --c2: 0; --c3: 0; --c4: 0;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  perspective: 1200px;
+}
+.cin-ch { position: absolute; inset: 0; display: grid; place-items: center; pointer-events: none; }
+.cin-ch a { pointer-events: auto; }
+.cin-kicker { font-family: "IBM Plex Mono", monospace; font-size: 13px; color: #8fa2ff; margin: 0 0 12px; }
+
+/* Show each chapter only while it is playing */
+.cin-ch--name { opacity: calc(1 - var(--c0) * 1.2); }
+.cin-ch--kb { opacity: calc(min(1, var(--c1) * 8) * (1 - max(0, (var(--c1) - 0.9) * 10))); }
+.cin-ch--work { opacity: calc(min(1, var(--c2) * 12) * (1 - max(0, (var(--c2) - 0.95) * 20))); }
+.cin-ch--skills { opacity: calc(min(1, var(--c3) * 8) * (1 - max(0, (var(--c3) - 0.9) * 10))); }
+.cin-ch--contact { opacity: min(1, calc(var(--c4) * 4)); }
+
+/* 1. Name */
+.cin-ch--name { align-content: center; justify-items: center; text-align: center; transform-style: preserve-3d; }
+.cin-name {
+  display: flex;
+  margin: 0;
+  font-family: Newsreader, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(64px, 17vw, 300px);
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  transform-style: preserve-3d;
+}
+.cin-letter {
+  display: inline-block;
+  will-change: transform;
+  text-shadow: 2px 2px 0 #2a2622, 4px 4px 0 #1d1a17, 6px 6px 0 #141210, 8px 8px 0 #0e0d0b, 18px 24px 40px rgb(0 0 0 / 0.6);
+}
+.cin-scroll { margin-top: 40px; font-family: "IBM Plex Mono", monospace; font-size: 12px; color: #8a847a; }
+
+/* 2. Keyboard */
+.cin-kb { position: absolute; inset: 0; transition: opacity 300ms ease; }
+.cin-kb canvas { width: 100%; height: 100%; display: block; }
+.cin-headline {
+  position: absolute;
+  left: 50%;
+  top: 14%;
+  width: min(1000px, 90vw);
+  transform: translateX(-50%) translateY(calc((1 - min(1, var(--c1) * 2.5)) * 40px));
+  opacity: min(1, calc(var(--c1) * 2.5));
+  margin: 0;
+  text-align: center;
+  font-family: Newsreader, Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(32px, 5vw, 72px);
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+}
+
+/* 3. Projects tunnel */
+.cin-tunnel { position: absolute; inset: 0; transform-style: preserve-3d; perspective: 1000px; }
+.cin-shot { position: absolute; left: 50%; top: 50%; width: min(760px, 86vw); will-change: transform, opacity; }
+.cin-shot .window { box-shadow: 0 40px 100px -20px rgb(0 0 0 / 0.8); }
+.cin-ptexts { position: absolute; left: max(16px, 5vw); bottom: 12vh; width: min(420px, calc(100vw - 32px)); }
+.cin-ptext {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px 24px;
+  border-radius: 14px;
+  background: rgb(12 11 10 / 0.78);
+  border: 1px solid rgb(239 233 222 / 0.1);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 300ms ease, transform 400ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.cin-ptext.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.cin-ptext h3 { font-family: Newsreader, Georgia, serif; font-weight: 400; font-size: 40px; margin: 0 0 8px; }
+.cin-ptext p { color: #c9c2b6; margin: 0 0 8px; }
+.cin-links { display: flex; gap: 20px; }
+.cin-links a { color: #8fa2ff; text-decoration: none; font-weight: 500; }
+
+/* 4. Skills */
+.cin-ch--skills { align-content: center; gap: 2vh; overflow: hidden; }
+.cin-row { display: flex; gap: 0.6em; white-space: nowrap; font-family: Newsreader, Georgia, serif; font-size: clamp(40px, 8vw, 120px); line-height: 1; will-change: transform; }
+.cin-row span::after { content: "·"; margin-left: 0.6em; color: #8fa2ff; }
+.cin-row.is-soft { color: transparent; -webkit-text-stroke: 1px #8a847a; }
+
+/* 5. Contact */
+.cin-ch--contact { align-content: center; justify-items: center; text-align: center; padding: 0 24px; }
+.cin-ch--contact .cin-kicker { max-width: 36rem; color: #c9c2b6; font-family: "Libre Franklin", sans-serif; font-size: 18px; }
+.cin-email {
+  font-family: Newsreader, Georgia, serif;
+  font-size: clamp(36px, 8vw, 128px);
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: #efe9de;
+  text-decoration: none;
+  margin: 12px 0 24px;
+  overflow-wrap: anywhere;
+}
+.cin-email:hover { color: #8fa2ff; }
+
+.cin-progress { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgb(239 233 222 / 0.08); }
+.cin-progress span { display: block; height: 100%; width: calc(var(--p) * 100%); background: #8fa2ff; }

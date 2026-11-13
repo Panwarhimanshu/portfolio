@@ -1,0 +1,26 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "cramped-padding",
+        "value": "*",
+        "files": [
+          "index.html"
+        ],
+        "createdAt": "2026-11-06T05:42:45.013Z",
+        "reason": "Claude: .skills__col has 24px left padding beside its border-left; first column has no border (styles.css skills rules)"
+      },
+      {
+        "rule": "gradient-text",
+        "value": "*",
+        "files": [
+          "client/src/glass/glass.css"
+        ],
+        "createdAt": "2026-11-06T07:58:38.075Z",
+        "reason": "user confirmed: picked the 'Glassmorphism + gradients' style, gradient text is part of it"
+      }
+    ]
+  }
+}
