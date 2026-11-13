@@ -25,7 +25,7 @@ export function fileToDataUrl(file) {
 }
 
 export async function uploadFile(file) {
-  if (file.size > 8 * 1024 * 1024) throw new Error('Files can be up to 8 MB');
+  if (file.size > 3 * 1024 * 1024) throw new Error('Files can be up to 3 MB');
   const data = await fileToDataUrl(file);
   const { url } = await api('/upload', { method: 'POST', body: { name: file.name, data } });
   return url;
